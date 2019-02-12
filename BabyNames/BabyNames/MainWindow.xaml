@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BabyNames"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="800" Loaded="MainWindow_Loaded">
+    <Grid Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Bottom">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListBox Name="DecadeListBox" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="397" Grid.ColumnSpan="2"/>
+        <ListBox PreviewMouseLeftButtonDown="BabyNameListBox_OnPreviewMouseLeftButtonDown"  Name="BabyNameListBox" Grid.Column="1" HorizontalAlignment="Left" Height="420" Margin="0,0,0,0" VerticalAlignment="Top" Width="397"/>
+
     </Grid>
 </Window>
