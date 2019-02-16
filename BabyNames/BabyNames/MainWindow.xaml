@@ -5,14 +5,106 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BabyNames"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="MainWindow_Loaded">
+        Title="MainWindow" Height="450" Width="600" Loaded="MainWindow_Loaded" WindowStartupLocation="CenterScreen">
     <Grid Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Bottom">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <ListBox Name="DecadeListBox" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="397" Grid.ColumnSpan="2"/>
-        <ListBox PreviewMouseLeftButtonDown="BabyNameListBox_OnPreviewMouseLeftButtonDown"  Name="BabyNameListBox" Grid.Column="1" HorizontalAlignment="Left" Height="420" Margin="0,0,0,0" VerticalAlignment="Top" Width="397"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row ="0" >
+            <ListBox SelectionChanged="DecadeListBox_OnSelectionChanged" HorizontalAlignment="Left" Margin="10,39,0,12" Name="DecadeListBox" Width="60"/>
+            <ListBox Margin="88,39,10,12" Name="BabyNameListBox" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" Name="label1" VerticalAlignment="Top" Width="60">Decades</Label>
+            <Label Height="28" Margin="88,10,32,0" Name="label2" VerticalAlignment="Top">Top 10 baby names in selected decade</Label>
+        </Grid>
+
+
+        <Grid Grid.Row="1">
+            <GroupBox Grid.Row ="0" 
+                      Header="Search" Margin="10,10,10,10" Name="groupBoxSearch"/>
+            <Grid Name="SearchGrid">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200*" />
+                    <ColumnDefinition Width="100*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="gridSearch" Height="20" />
+                        <RowDefinition SharedSizeGroup="gridSearch" Height="40"/>
+                        <RowDefinition SharedSizeGroup="gridSearch" Height="40"/>
+                        <RowDefinition SharedSizeGroup="gridSearch" Height="40"/>
+                        <RowDefinition SharedSizeGroup="gridSearch" Height="40"/>
+                        <RowDefinition Height="0*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MinWidth="30" Width="24*" />
+                        <ColumnDefinition MinWidth="40" Width="49*" />
+                        <ColumnDefinition Width="59*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="1" 
+                           Margin="20,0.2,10,40.4" 
+                           Grid.RowSpan="2">_Navn:</Label>
+                    
+                    <TextBox Name="NameTextBox" 
+                             Grid.Row="1" 
+                             Grid.ColumnSpan="2" 
+                             Grid.Column="1" 
+                             Margin="6,4.2,0,17.6"
+                             />
+
+                    <Button Name="SearchBtn" 
+                            Click="SearchBtn_OnClick" 
+                            Grid.Row="2" 
+                            Grid.Column="1" 
+                            Margin="8,0.4,94.2,10.4" 
+                            FontWeight="Bold">Search</Button>
+                    <Label Content="Average ranking: " 
+                           Grid.Row="2" 
+                           Margin="71,40.4,10.2,0.2" 
+                           Grid.RowSpan="2" 
+                           Grid.ColumnSpan="2"
+                           Grid.Column="0" />
+                    <TextBox Name="RankTextBox" 
+                             Grid.Row="3" 
+                             Grid.Column="1" 
+                             Grid.ColumnSpan="2" 
+                             Margin="110,5.6,0,15.2"/>
+                    <Label Content="Trend " 
+                           Grid.Row="3" 
+                           Margin="71,40.4,10.2,0.2" 
+                           Grid.RowSpan="2" 
+                           Grid.ColumnSpan="2"
+                           Grid.Column="0" />
+                    <TextBox Name="TrendTextBox" 
+                             Grid.Row="4" 
+                             Grid.Column="1" 
+                             Grid.ColumnSpan="2" 
+                             Margin="110,5.6,0,15.2"/>
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition 
+                            Height="45" 
+                            SharedSizeGroup="gridSearch"></RowDefinition>
+                        <RowDefinition 
+                            SharedSizeGroup="gridSearch" 
+                            Height="163"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Content="Year" Grid.Row="0" Margin="14,20,0,0"></Label>
+                    <Label Content="Rank" Grid.Row="0" Margin="65,20,80,0"></Label>
+                    <ListBox Margin="10,0.4,59.6,19.6" Name="SearchListBox" Grid.Row="1"></ListBox>
+                </Grid>
+
+
+            </Grid>
+
+
+        </Grid>
 
     </Grid>
 </Window>
