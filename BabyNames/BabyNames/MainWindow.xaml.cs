@@ -116,5 +116,29 @@ namespace BabyNames
                     MessageBox.Show("Name does not exist in the statistic");
             }
         }
+
+        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void SmallFont_OnClick(object sender, RoutedEventArgs e)
+        {
+            FontSize = 8;
+        }
+        private void NormalFont_OnClick(object sender, RoutedEventArgs e)
+        {
+            FontSize = 12;
+        }
+
+        private void LargeFont_OnClick(object sender, RoutedEventArgs e)
+        {
+            FontSize = 18;
+        }
+
+
+        private void Huge_OnClick(object sender, RoutedEventArgs e)
+        {
+            FontSize = 36;
+        }
     }
 }

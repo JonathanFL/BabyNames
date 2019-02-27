@@ -9,19 +9,34 @@
     <Grid Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Bottom">
 
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="23*" />
+            <RowDefinition Height="181*" />
+            <RowDefinition Height="216*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row ="0" >
-            <ListBox SelectionChanged="DecadeListBox_OnSelectionChanged" HorizontalAlignment="Left" Margin="10,39,0,12" Name="DecadeListBox" Width="60"/>
-            <ListBox Margin="88,39,10,12" Name="BabyNameListBox" />
+        <Grid Grid.Row="0" Margin="0,0,0,0.2">
+            <Menu Margin="0,5,0,0">
+                <MenuItem Header="_File">
+                    <MenuItem Header="Exit" Click="MenuItem_OnClick"/>
+                </MenuItem>
+                <MenuItem Header="_Font">
+                    <MenuItem Name="SmallFont" Header="Small" Click="SmallFont_OnClick"/>
+                    <MenuItem Name="NormalFont" Header="Normal" Click="NormalFont_OnClick"/>
+                    <MenuItem Name="LargeFont" Header="Large" Click="LargeFont_OnClick"/>
+                    <MenuItem Name="Huge" Header="Huge" Click="Huge_OnClick"/>
+                </MenuItem>
+            </Menu>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0,6.8,0,151" Grid.RowSpan="2" >
+            <ListBox SelectionChanged="DecadeListBox_OnSelectionChanged" HorizontalAlignment="Left" Margin="10,39,0,72" Name="DecadeListBox" Width="60"/>
+            <ListBox Margin="88,39,9.6,72" Name="BabyNameListBox" />
             <Label Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" Name="label1" VerticalAlignment="Top" Width="60">Decades</Label>
             <Label Height="28" Margin="88,10,32,0" Name="label2" VerticalAlignment="Top">Top 10 baby names in selected decade</Label>
         </Grid>
 
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2" Margin="0,4,0,0">
             <GroupBox Grid.Row ="0" 
                       Header="Search" Margin="10,10,10,10" Name="groupBoxSearch"/>
             <Grid Name="SearchGrid">
@@ -45,25 +60,25 @@
                         <ColumnDefinition Width="59*" />
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="1" 
-                           Margin="20,0.2,10,40.4" 
+                           Margin="20,6.2,10,34.4" 
                            Grid.RowSpan="2">_Navn:</Label>
-                    
+
                     <TextBox Name="NameTextBox" 
                              Grid.Row="1" 
                              Grid.ColumnSpan="2" 
                              Grid.Column="1" 
-                             Margin="6,4.2,0,17.6"
+                             Margin="6,10.2,0,11.6"
                              />
 
                     <Button Name="SearchBtn" 
                             Click="SearchBtn_OnClick" 
                             Grid.Row="2" 
                             Grid.Column="1" 
-                            Margin="8,0.4,94.2,10.4" 
+                            Margin="8,6.4,94.2,4.4" 
                             FontWeight="Bold">Search</Button>
                     <Label Content="Average ranking: " 
-                           Grid.Row="2" 
-                           Margin="71,40.4,10.2,0.2" 
+                           Grid.Row="3" 
+                           Margin="71,5.6,10.2,35" 
                            Grid.RowSpan="2" 
                            Grid.ColumnSpan="2"
                            Grid.Column="0" />
@@ -71,10 +86,10 @@
                              Grid.Row="3" 
                              Grid.Column="1" 
                              Grid.ColumnSpan="2" 
-                             Margin="110,5.6,0,15.2"/>
+                             Margin="110,11.6,0,9.2"/>
                     <Label Content="Trend " 
-                           Grid.Row="3" 
-                           Margin="71,40.4,10.2,0.2" 
+                           Grid.Row="4" 
+                           Margin="71,5.8,10.2,-5.2" 
                            Grid.RowSpan="2" 
                            Grid.ColumnSpan="2"
                            Grid.Column="0" />
@@ -82,7 +97,7 @@
                              Grid.Row="4" 
                              Grid.Column="1" 
                              Grid.ColumnSpan="2" 
-                             Margin="110,5.6,0,15.2"/>
+                             Margin="110,11.8,0,9"/>
 
                 </Grid>
 
@@ -95,9 +110,9 @@
                             SharedSizeGroup="gridSearch" 
                             Height="163"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label Content="Year" Grid.Row="0" Margin="14,20,0,0"></Label>
-                    <Label Content="Rank" Grid.Row="0" Margin="65,20,80,0"></Label>
-                    <ListBox Margin="10,0.4,59.6,19.6" Name="SearchListBox" Grid.Row="1"></ListBox>
+                    <Label Content="Year" Grid.Row="0" Margin="14,28,-0.4,155.6" Grid.RowSpan="2"></Label>
+                    <Label Content="Rank" Grid.Row="0" Margin="65,28,79.6,155.6" Grid.RowSpan="2"></Label>
+                    <ListBox Margin="10,8.4,59.6,11.6" Name="SearchListBox" Grid.Row="1"></ListBox>
                 </Grid>
 
 
